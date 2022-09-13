@@ -5,12 +5,13 @@ import {
   faMagnifyingGlass,
   faSpinner,
 } from "@fortawesome/free-solid-svg-icons";
+import { useEffect, useState } from "react";
 import Tippy from "@tippyjs/react/headless";
 import styles from "./Header.module.scss";
 import images from "~/assets/images";
-import { useEffect, useState } from "react";
 import { Wrapper as PopperWrapper } from "~/components/Popper";
 import AccountItem from "~/components/AccountItem";
+import Button from "~/components/Button";
 const cx = classNames.bind(styles);
 function Header() {
   const [searchResult, setSearchResult] = useState([]);
@@ -49,7 +50,11 @@ function Header() {
             </button>
           </div>
         </Tippy>
-        <div className={cx("actions")}></div>
+        <div className={cx("actions")}>
+          <Button outline small to="/login">
+            Log in
+          </Button>
+        </div>
       </div>
     </header>
   );
